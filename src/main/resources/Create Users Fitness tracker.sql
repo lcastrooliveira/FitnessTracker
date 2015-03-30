@@ -23,3 +23,13 @@ insert into authorities (username,authority) values ("boss", "ROLE_ADMIN");
 insert into authorities (username,authority) values ("boss", "ROLE_USER");
 select * from authorities;
 delete from authorities where username="lucas" and authority="ROLE_ADMIN";
+
+update users set password = "ceb8447cc4ab78d2ec34cd9f11e4bed2"
+where username="boss";
+
+update users set password = "boss"
+where username="boss";
+
+alter table users modify password varchar(60);
+update users set password = "$2a$10$Eg.VWhTI8IHf9/X825072OI911t583xgGopvNfwL0ZzBJA41110R6"
+where username="lucas";
