@@ -17,3 +17,9 @@ select * from users;
 insert into authorities (username,authority) values ("lucas", "ROLE_USER");
 
 select * from authorities;
+
+insert into users(username,password, enabled) values ("boss","boss",true);
+insert into authorities (username,authority) values ("boss", "ROLE_ADMIN");
+insert into authorities (username,authority) values ("boss", "ROLE_USER");
+select * from authorities;
+delete from authorities where username="lucas" and authority="ROLE_ADMIN";
