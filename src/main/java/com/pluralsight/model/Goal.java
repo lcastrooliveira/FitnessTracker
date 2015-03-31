@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -38,9 +36,7 @@ public class Goal {
 	
 	public List<Exercise> getExercises() {
 		return exercises;
-	}
-	
-	
+	}	
 	
 	public Long getId() {
 		return id;

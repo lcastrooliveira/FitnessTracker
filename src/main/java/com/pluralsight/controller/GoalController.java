@@ -34,7 +34,6 @@ public class GoalController {
 			goal.setMinutes(10);
 		}
 		model.addAttribute("goal", goal);
-		
 		return "addGoal";
 	}
 	
