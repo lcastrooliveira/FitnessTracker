@@ -24,7 +24,7 @@ insert into authorities (username,authority) values ("boss", "ROLE_USER");
 select * from authorities;
 delete from authorities where username="lucas" and authority="ROLE_ADMIN";
 
-update users set password = "ceb8447cc4ab78d2ec34cd9f11e4bed2"
+update users set password = "$2a$10$jKRrfKKIFbegDBoPghuqdui9qpNF6crNnTykL/KvC95oez8Ts2LL."
 where username="boss";
 
 update users set password = "boss"
@@ -37,3 +37,16 @@ where username="lucas";
 insert users(username,password,enabled) values ("mark", "$2a$10$Eg.VWhTI8IHf9/X825072OI911t583xgGopvNfwL0ZzBJA41110R6",1);
 
 insert into authorities(username,authority) values ("mark","ROLE_BAD");
+
+create table permissions (
+	username varchar(50) not null,
+    target varchar(50) not null,
+    permsission varchar(50) not null,
+    constraint fk_permissions_users foreign key(username) references users(username));
+    
+ALTER TABLE permissions
+  change permsission permission varchar(50) not null;
+    
+create unique index ix_perm_username on permissions (username,target,permission);
+insert into permissions (username,target,permission)
+	values("boss","com.pluralsight.model.Goal","createGoal");
