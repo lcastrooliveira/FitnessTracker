@@ -8,19 +8,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 	
-	<ldap-server ldif="classpath:users.ldif"/>
+	<!-- <ldap-server ldif="classpath:users.ldif"/>  -->
 		
 	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/login.html" access="permitAll"/>
-		<intercept-url pattern="/loginFailed.html" access="permitAll"/>
-		<intercept-url pattern="/logout.html" access="permitAll"/>
-		<intercept-url pattern="/403.html" access="permitAll"/>
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/login.html" access="permitAll" requires-channel="https"/>
+		<intercept-url pattern="/loginFailed.html" access="permitAll" requires-channel="https"/>
+		<intercept-url pattern="/logout.html" access="permitAll" requires-channel="https"/>
+		<intercept-url pattern="/403.html" access="permitAll" requires-channel="https"/>
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" requires-channel="https"/>
 		<form-login login-page="/login.html" authentication-failure-url="/loginFailed.html"/>
 		<logout logout-success-url="/logout.html"/>
 		<access-denied-handler error-page="/403.html"/>
 	</http>
-	
+	<!-- 
 	<authentication-manager>
 		<ldap-authentication-provider
 			group-search-filter="member={0}"
@@ -29,13 +29,13 @@
 			user-search-filter="uid={0}"
 		/>
 	</authentication-manager>	
-
-	<!-- 
+	 -->
+	 
 	<authentication-manager>
 		<authentication-provider>
 			<password-encoder hash="bcrypt"/>
 			<jdbc-user-service data-source-ref="dataSource"/>
 		</authentication-provider>
 	</authentication-manager>
-	 -->
+	
 </beans:beans>
