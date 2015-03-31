@@ -50,3 +50,7 @@ ALTER TABLE permissions
 create unique index ix_perm_username on permissions (username,target,permission);
 insert into permissions (username,target,permission)
 	values("boss","com.pluralsight.model.Goal","createGoal");
+    
+delete from permissions where username = "boss";
+
+select * from permissions;
