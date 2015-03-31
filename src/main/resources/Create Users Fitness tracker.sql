@@ -33,3 +33,7 @@ where username="boss";
 alter table users modify password varchar(60);
 update users set password = "$2a$10$Eg.VWhTI8IHf9/X825072OI911t583xgGopvNfwL0ZzBJA41110R6"
 where username="lucas";
+
+insert users(username,password,enabled) values ("mark", "$2a$10$Eg.VWhTI8IHf9/X825072OI911t583xgGopvNfwL0ZzBJA41110R6",1);
+
+insert into authorities(username,authority) values ("mark","ROLE_BAD");
