@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+	<!-- ========================= DWR CONFIGURATIONS ========================= -->
+	<!-- DWR will map util.js and engine.js files to the dwrController. You 
+		can then include this files as external Javascript references from your JSP -->
+	<dwr:url-mapping />
+
+	<!-- DWR - Defines the dwrController. During production, set the debug property 
+		to false -->
+	<dwr:controller id="dwrController" debug="true">
+	</dwr:controller>
+
+	<dwr:annotation-config />
+
+	<dwr:annotation-scan base-package="com.desafio.app"
+		scanDataTransferObject="true" scanRemoteProxy="true" />
+</beans>

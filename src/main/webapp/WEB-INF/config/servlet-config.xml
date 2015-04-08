@@ -3,13 +3,37 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr/spring-dwr-3.0.xsd">
+	
+	<!-- DWR -->
+	<dwr:annotation-config/>
+	
+	<!-- DWR will scan the classpath and search classes containing @RemoteProxy or @RemoteMethod annotations. 
+		This will register the beans and Creator proxies for these classes.-->
+ 	<dwr:annotation-scan base-package="com.pluralsight.model"
+ 		scanDataTransferObject="true" scanRemoteProxy="false"/>
+ 		
+ 	<!-- DWR - This is required if you want to configure any beans not managed by Spring.-->
+	<dwr:configuration>
+		<dwr:convert type="bean" class="java.lang.StackTraceElement"/>
+		<dwr:convert type="exception" class="java.lang.Exception"/>		
+		<!-- 
+		<dwr:convert type="bean" class="org.springframework.data.domain.PageImpl" javascript="PageImpl"/>
+		<dwr:convert type="bean" class="org.springframework.data.domain.PageRequest" javascript="PageRequest"/>
+		<dwr:convert type="bean" class="org.springframework.data.domain.Sort" javascript="Sort"/>
+		<dwr:convert type="enum" class="org.springframework.data.domain.Sort$Direction"/>
+		<dwr:convert type="enum" class="org.springframework.data.domain.Sort$NullHandling"/>
+		<dwr:convert type="bean" class="org.springframework.data.domain.Sort$Order" javascript="Order"/>
+		 -->
+	</dwr:configuration>
+	
 	<mvc:annotation-driven/>
 	
 	<mvc:resources location="assets" mapping="/assets/**"/>
@@ -44,7 +68,7 @@
 					</bean>
 				</constructor-arg>
 			</bean>
-		</property>
+		</property>		
 		
 		<property name="defaultViews">
 			<list>

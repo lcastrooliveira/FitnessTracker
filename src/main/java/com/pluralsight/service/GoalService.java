@@ -3,7 +3,6 @@ package com.pluralsight.service;
 import java.util.List;
 
 import com.pluralsight.model.Goal;
-import com.pluralsight.model.GoalReport;
 
 public interface GoalService {
 
@@ -11,6 +10,6 @@ public interface GoalService {
 
 	List<Goal> findAllGoals();
 
-	List<GoalReport> findAllGoalReports();
+	//List<GoalReport> findAllGoalReports();
 	
 }
