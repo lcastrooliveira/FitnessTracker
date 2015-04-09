@@ -44,11 +44,10 @@
       <div class="hero-unit">
         <div>
           <h1>
-            Welcome to Fitness Tracker <sec:authentication property="name"/> !
+            Desafio Eits <sec:authentication property="name"/> !
           </h1>
           <p>
-            To get started, we need to enter a goal for what we want to exercise for
-            today.
+            Escolha uma das opcoes abaixo para inserir um projeto/atividade ou um usuário
           </p>
         </div>
         <a class="btn btn-primary" href="addGoal.html">
@@ -65,6 +64,9 @@
         <a class="btn btn-warning" href="j_spring_security_logout">
           Logout »
         </a>
+        <a class="btn btn-primary" href="newProject.html">
+          Projetos »
+        </a>        
       </div>
       <div>
       </div>

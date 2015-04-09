@@ -17,17 +17,17 @@
 	
 	<context:component-scan base-package="com.pluralsight.controller"/>
 	
-	<security:global-method-security pre-post-annotations="enabled">
-		<security:expression-handler ref="fitnessExpressionHandler"/>
-	</security:global-method-security>
+<!-- 	<security:global-method-security pre-post-annotations="enabled"> -->
+<!-- 		<security:expression-handler ref="fitnessExpressionHandler"/> -->
+<!-- 	</security:global-method-security> -->
 	
-	<bean id="fitnessExpressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
-		<property name="permissionEvaluator">
-			<bean id="permissionEvaluator" class="com.pluralsight.security.FitnessPermissionEvaluator">
-				<property name="datasource" ref="dataSource"></property>
-			</bean>
-		</property>
-	</bean>
+<!-- 	<bean id="fitnessExpressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler"> -->
+<!-- 		<property name="permissionEvaluator"> -->
+<!-- 			<bean id="permissionEvaluator" class="com.pluralsight.security.FitnessPermissionEvaluator"> -->
+<!-- 				<property name="datasource" ref="dataSource"></property> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="order" value="1" />
