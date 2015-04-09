@@ -14,6 +14,7 @@
       to the bottom of the topbar */ }
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -25,6 +26,26 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    
+    <script src="assets/js/jquery-1.8.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+    <script src="assets/js/angular-ui-router.min.js"></script>
+    
+    <script type='text/javascript' src='/FitnessTracker/dwr/engine.js'></script>
+  	<script type='text/javascript' src='/FitnessTracker/dwr/interface/goalServiceDwr.js'></script>  	
+  	<script type='text/javascript' src='/FitnessTracker/dwr/interface/exerciseServiceDwr.js'></script>
+  	
+  	<script src="assets/js/project-main.js"></script>  	
+  	<script src="assets/js/controllers/goal-controller.js"></script>
+  	  	
+  	
+        
     <style>
     </style>
   </head>
@@ -50,7 +71,7 @@
             Escolha uma das opcoes abaixo para inserir um projeto/atividade ou um usuário
           </p>
         </div>
-        <a class="btn btn-primary" href="addGoal.html">
+        <a class="btn btn-primary" ui-sref="goal-insert">
           Add Goal »
         </a>
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
@@ -71,10 +92,9 @@
       <div>
       </div>
     </div>
-    
-    <script src="jquery-1.8.3.js">
-    </script>
-    
+        
+    <ui-view/>
+        
     <script src="assets/js/bootstrap.js">
     </script>
   </body>

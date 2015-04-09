@@ -10,13 +10,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
+import org.directwebremoting.annotations.DataTransferObject;
+import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.Range;
 
 
 @Entity
-@Table(name="goals")
+@Audited
+@DataTransferObject(javascript="Goal")
 public class Goal {
 
 	public static final String FIND_ALL_GOALS = "findAllGoals";
